@@ -1,9 +1,13 @@
-const Navbar = () => {
-    return (
-      <header className="h14-flex items-center justify-center border-b bg-white">
-        <h1 className="text-xl font-semibold"></h1>
-        </header>
-    )
-}
+import { NavLink } from "react-router-dom";
 
-export default Navbar
+const Navbar = () => {
+  return (
+    <nav style={{ display: "flex", gap: "1rem", padding: "1rem" }}>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/explore">Explore</NavLink>
+      <NavLink to="/profile">Profile</NavLink>
+    </nav>
+  );
+};
+
+export default Navbar;

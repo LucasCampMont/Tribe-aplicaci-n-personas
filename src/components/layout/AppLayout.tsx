@@ -1,19 +1,15 @@
-import { Outlet } from "react-router-dom"
-import BottomNav from "./BottomNav"
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const AppLayout = () => {
   return (
-    <div className="flex flex-col h-screen">
-      
-      {/* Contenido principal */}
-      <main className="flex-1 overflow-hidden bg-gray-100">
+    <>
+      <Navbar />
+      <main style={{ padding: "1rem" }}>
         <Outlet />
       </main>
+    </>
+  );
+};
 
-      {/* Navegación inferior */}
-      <BottomNav />
-    </div>
-  )
-}
-
-export default AppLayout
+export default AppLayout;
