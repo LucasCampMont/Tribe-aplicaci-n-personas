@@ -1,15 +1,17 @@
-import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
+import { Outlet } from "react-router-dom"; // necesario para nested routes
+import BottomNav from "./BottomNav";
 
-const AppLayout = () => {
+export default function AppLayout() {
   return (
-    <>
-      <Navbar />
-      <main style={{ padding: "1rem" }}>
-        <Outlet />
-      </main>
-    </>
-  );
-};
+    <div className="min-h-screen flex flex-col bg-teal-500">
 
-export default AppLayout;
+      {/* Aquí luego pondrás tu BottomNav */}
+      <main className="flex-1">
+        <Outlet /> {/* Esto renderiza las rutas hijas */}
+      </main>
+
+      
+     <BottomNav />
+    </div>
+  );
+}
