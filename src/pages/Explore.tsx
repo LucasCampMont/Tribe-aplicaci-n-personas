@@ -1,87 +1,43 @@
-import TribeCard from "../components/ui/TribeCard";
+import { useState } from "react";
+import { profiles } from "../data/profiles";
+import ProfileCard from "../components/ui/ProfileCard";
 
 export default function Explore() {
+  const [index, setIndex] = useState(0);
+
+  if (index >= profiles.length) {
+    return (
+      <div className="flex justify-center items-center h-[500px] text-gray-500">
+        No hay más perfiles ✨
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen p-4 space-y-4">
+    <div className="flex justify-center pt-6">
+      <div className="relative w-full max-w-sm h-[500px]">
+        {/* Card de atrás */}
+        {profiles[index + 1] && (
+          <ProfileCard
+            key={profiles[index + 1].id}
+            profile={profiles[index + 1]}
+            isTop={false}
+            z={0}
+            onLike={() => {}}
+            onPass={() => {}}
+          />
+        )}
 
-      {/* Card de bienvenida */}
-      <TribeCard>
-        <h2 className="text-tribe-dark text-lg font-semibold">
-          Bienvenido a Tribe 🌴
-        </h2>
-        <p className="text-tribe-dark text-opacity-70 text-sm mt-1">
-          Personas cerca de ti, conexiones reales.
-        </p>
-      </TribeCard>
-
-      {/* Card de usuario */}
-      <TribeCard className="flex items-center gap-4">
-        <div
-          className="
-            w-14 h-14 rounded-full
-            bg-tribe-accent
-            flex items-center justify-center
-            text-tribe-dark font-bold
-          "
-        >
-          LC
-        </div>
-
-        <div className="flex-1">
-          <p className="font-semibold text-tribe-dark">
-            Lucas, 20
-          </p>
-          <p className="text-tribe-dark text-opacity-70 text-sm">
-            Santiago • 2 km
-          </p>
-        </div>
-
-        <button
-          className="
-            px-3 py-1.5 rounded-full
-            bg-tribe-primary
-            text-white text-sm font-medium
-            hover:opacity-90 transition
-          "
-        >
-          Conectar
-        </button>
-      </TribeCard>
-
-      {/* Card de ejemplo adicional */}
-      <TribeCard className="flex items-center gap-4">
-        <div
-          className="
-            w-14 h-14 rounded-full
-            bg-tribe-accent
-            flex items-center justify-center
-            text-tribe-dark font-bold
-          "
-        >
-          AB
-        </div>
-
-        <div className="flex-1">
-          <p className="font-semibold text-tribe-dark">
-            Ana, 22
-          </p>
-          <p className="text-tribe-dark text-opacity-70 text-sm">
-            Santiago • 3 km
-          </p>
-        </div>
-
-        <button
-          className="
-            px-3 py-1.5 rounded-full
-            bg-tribe-primary
-            text-white text-sm font-medium
-            hover:opacity-90 transition
-          "
-        >
-          Conectar
-        </button>
-      </TribeCard>
-
+        {/* Card activa */}
+        <ProfileCard
+          key={profiles[index].id}
+          profile={profiles[index]}
+          isTop={true}
+          z={10}
+          onLike={() => setIndex(i => i + 1)}
+          onPass={() => setIndex(i => i + 1)}
+        />
+      </div>
     </div>
   );
 }

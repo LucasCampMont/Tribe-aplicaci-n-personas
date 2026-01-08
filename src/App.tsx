@@ -9,13 +9,13 @@ import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MenuCerca from "./pages/MenuCerca";
+import Community from "./pages/Community"; // 👈 cambiar la ruta correcta
 
 // Layout
 import AppLayout from "./components/layout/AppLayout";
 
 function App() {
   return (
-    
     <Routes>
       {/* Public routes */}
       <Route path="/login" element={<Login />} />
@@ -24,6 +24,7 @@ function App() {
       {/* Protected / App routes */}
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Explore />} />
+        <Route path="community" element={<Community />} />
         <Route path="cerca" element={<MenuCerca />} />
         <Route path="matches" element={<Matches />} />
         <Route path="messages" element={<Messages />} />
