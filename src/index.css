@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand */
+  --color-tribe-primary: #14b8a6;
+  --color-tribe-primary-dark: #0f766e;
+  --color-app-bg: #EEF6D8; /* verde pasto claro */
+
+  /* UI */
+  --color-tribe-surface: #f0fdfa;
+  --color-tribe-accent: #a7f3d0;
+
+  /* Text */
+  --color-tribe-text: #0f172a;
+  --color-tribe-muted: #64748b;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background-color: var(--color-app-bg);
+}
